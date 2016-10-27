@@ -15,6 +15,11 @@
             return { toastMessage: i18n('unblockToSend') };
         }
     });
+    Whisper.HiddenToast = Whisper.ToastView.extend({
+        render_attributes: function() {
+            return { toastMessage: i18n('contactHidden') };
+        }
+    });
 
     var MenuView = Whisper.View.extend({
         toggleMenu: function() {
@@ -69,6 +74,7 @@
                 'verify-identity' : i18n('verifySafetyNumbers'),
                 'destroy'         : i18n('deleteMessages'),
                 'send-message'    : i18n('sendMessage'),
+                'hide-contact'    : i18n('hideContact'),
                 'disappearing-messages': i18n('disappearingMessages'),
                 timer_options     : Whisper.ExpirationTimerOptions.models
             };
@@ -132,6 +138,7 @@
             'keydown .send-message': 'updateMessageFieldSize',
             'click .destroy': 'destroyMessages',
             'click .end-session': 'endSession',
+            'click .hide-contact': 'hideContact',
             'click .leave-group': 'leaveGroup',
             'click .update-group': 'newGroupUpdate',
             'click .verify-identity': 'verifyIdentity',
@@ -301,6 +308,14 @@
 
         endSession: function() {
             this.model.endSession();
+            this.$('.menu-list').hide();
+        },
+
+        hideContact: function() {
+            var toast = new Whisper.HiddenToast();
+            toast.$el.insertAfter(this.$el);
+            toast.render();
+            this.model.trigger('hide');
             this.$('.menu-list').hide();
         },
 

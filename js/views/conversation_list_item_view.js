@@ -20,6 +20,7 @@
             this.listenTo(this.model, 'change', _.debounce(this.render.bind(this), 1000));
             this.listenTo(this.model, 'destroy', this.remove); // auto update
             this.listenTo(this.model, 'opened', this.markSelected); // auto update
+            this.listenTo(this.model, 'hide', this.hide); // auto update
             this.listenTo(this.model.messageCollection, 'add remove',
               _.debounce(this.model.updateLastMessage.bind(this.model), 1000));
             extension.windows.onClosed(this.stopListening.bind(this));
@@ -28,6 +29,11 @@
 
         markSelected: function() {
             this.$el.addClass('selected').siblings('.selected').removeClass('selected');
+        },
+
+        hide: function() {
+            this.$el.hide();
+            // TODO: Reset right pane to default view
         },
 
         select: function(e) {

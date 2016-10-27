@@ -150,6 +150,18 @@
         "message": "Secure session reset",
         "description": "This is a past tense, informational message. In other words, your secure session has been reset."
     },
+    "hiddenContacts": {
+        "message": "Hidden Contacts",
+        "description": "Main menu item for showing the currently hidden contacts"
+    },
+    "hideContact": {
+        "message": "Hide contact",
+        "description": "Conversation menu item for hiding the current contact"
+    },
+    "contactHidden": {
+        "message": "Contact hidden",
+        "description": "Used after a contact has been hidden"
+    },
     "installWelcome": {
         "message": "Welcome to Signal Desktop",
         "description": "Welcome title on the install page"

@@ -156,6 +156,7 @@
             searchForPeopleOrGroups : i18n('searchForPeopleOrGroups'),
             submitDebugLog          : i18n('submitDebugLog'),
             settings                : i18n('settings'),
+            hiddenContacts          : i18n('hiddenContacts'),
             restartSignal           : i18n('restartSignal'),
         },
         events: {
